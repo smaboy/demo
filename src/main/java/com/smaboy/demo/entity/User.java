@@ -2,7 +2,16 @@ package com.smaboy.demo.entity;
 
 public class User {
     private String username;
-    private int password;
+    private String password;
+    private String phone;
+    public User(String username, String password, String phone) {
+        this.username = username;
+        this.password = password;
+        this.phone = phone;
+    }
+
+    public User() {
+    }
 
     public String getUsername() {
         return username;
@@ -12,19 +21,28 @@ public class User {
         this.username = username;
     }
 
-    public int getPassword() {
+    public String getPassword() {
         return password;
     }
 
-    public void setPassword(int password) {
+    public void setPassword(String password) {
         this.password = password;
+    }
+
+    public String getPhone() {
+        return phone;
+    }
+
+    public void setPhone(String phone) {
+        this.phone = phone;
     }
 
     @Override
     public String toString() {
         return "User{" +
                 "username='" + username + '\'' +
-                ", password=" + password +
+                ", password='" + password + '\'' +
+                ", phone='" + phone + '\'' +
                 '}';
     }
 }

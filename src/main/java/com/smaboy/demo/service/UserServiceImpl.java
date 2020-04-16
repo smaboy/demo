@@ -17,14 +17,14 @@ public class UserServiceImpl implements UserService{
     public User getUserInfo() {
         User user = new User();
         user.setUsername("小明");
-        user.setPassword(12341234);
+        user.setPassword("12341234");
         return user;
     }
 
     @Override
     public void addUserInfo() {
         String username = "tom";
-        int password = 123;
+        String password = "123";
         User user = new User();
         user.setUsername(username);
         user.setPassword(password);
