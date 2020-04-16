@@ -22,13 +22,14 @@ public class UserServiceImpl implements UserService{
     }
 
     @Override
-    public void addUserInfo() {
-        String username = "tom";
-        String password = "123";
+    public int addUserInfo(String username, String password, String phonef) {
+//        String username = "tom";
+//        String password = "123";
         User user = new User();
         user.setUsername(username);
         user.setPassword(password);
-        userMapper.addUserInfo(user);
+        user.setPhone("1223454466");
+        return userMapper.addUserInfo(user);
     }
 
     @Override

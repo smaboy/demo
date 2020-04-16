@@ -6,7 +6,7 @@
         <result column="password" jdbcType="VARCHAR" property="password" />
     </resultMap>
     <insert id="addUserInfo" parameterType="com.smaboy.demo.entity.User">
-        INSERT INTO `user` VALUES(#{username},#{password})
+        INSERT INTO `user` VALUES(#{username},#{password},#{phone})
     </insert>
 
     <select id="queryByUsername" resultType="com.smaboy.demo.entity.User">
