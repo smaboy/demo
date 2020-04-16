@@ -8,4 +8,8 @@
     <insert id="addUserInfo" parameterType="com.smaboy.demo.entity.User">
         INSERT INTO `user` VALUES(#{username},#{password})
     </insert>
+
+    <select id="queryByUsername" resultType="com.smaboy.demo.entity.User">
+        SELECT * FROM `user` WHERE username = #{username}
+    </select >
 </mapper>
