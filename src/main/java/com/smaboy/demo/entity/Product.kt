@@ -1,7 +1,6 @@
 package com.smaboy.demo.entity
 
-//double productPrice;
-//int productType;
-//String productImg;
-//String productDes;
+/**
+ * 产品实体类
+ */
 data class Product(var productName : String , var productPrice : Double , var productType : Int , var productImg : String , var productDes : String)
