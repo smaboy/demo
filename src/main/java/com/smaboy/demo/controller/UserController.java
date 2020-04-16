@@ -65,4 +65,37 @@ public class UserController {
 
         return response;
     }
+
+    @RequestMapping(value = "/login" , method = RequestMethod.POST)
+    public Response login(@RequestBody Map<String,String> person){
+        Response response = new Response();
+        String name = person.get("username");
+        String password = person.get("password");
+        //判断用户名和密码是否为空
+        if (name !=null && !name.isEmpty() && password != null && !password.isEmpty()){
+            List<User> userList = service.queryByUsername(name);
+            //2.判断是否有该用户
+            if(userList!=null && userList.size()>0){
+                User user = userList.get(0);
+                if (password.equals(user.getPassword())){
+                    //用户名和密码一致，允许登录
+                    response.setCode(0);
+                    response.setMsg("登录成功");
+                    return response;
+                }else {
+                    //用户名相同，密码不同
+                    response.setCode(202);
+                    response.setMsg("登录失败，您的密码输入有误");
+
+                }
+            }else {
+                response.setCode(203);
+                response.setMsg("登录失败，该用户不存在");
+            }
+        }else {
+            response.setCode(201);
+            response.setMsg("登录失败，请检查用户名、密码是否为空");
+        }
+        return response;
+    }
 }
