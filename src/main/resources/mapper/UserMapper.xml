@@ -7,7 +7,7 @@
         <result column="phone" jdbcType="VARCHAR" property="phone" />
     </resultMap>
     <insert id="addUserInfo" parameterType="com.smaboy.demo.entity.User">
-        INSERT INTO `user` VALUES(#{username},#{password},#{phone})
+        INSERT INTO `user` (username, password, phone) VALUES(#{username},#{password},#{phone})
     </insert>
 
     <select id="queryByUsername" resultType="com.smaboy.demo.entity.User">
