@@ -39,7 +39,7 @@ class ProductController {
             response.msg = "添加产品失败，产品名不能为空！！"
             response.data = null
         }else{
-            val productTemp = Product(productName,productPrice,productType,productImg,productDes)
+            val productTemp = Product(productName = productName,productPrice = productPrice,productType = productType,productImg = productImg,productDes = productDes)
             val code = productService?.addProduct(productTemp) ?: 0
             if (code > 0){
                 response.code = 0
