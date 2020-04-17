@@ -4,6 +4,7 @@
     <resultMap id="BaseResultMap" type="com.smaboy.demo.entity.User">
         <result column="username" jdbcType="VARCHAR" property="username" />
         <result column="password" jdbcType="VARCHAR" property="password" />
+        <result column="phone" jdbcType="VARCHAR" property="phone" />
     </resultMap>
     <insert id="addUserInfo" parameterType="com.smaboy.demo.entity.User">
         INSERT INTO `user` VALUES(#{username},#{password},#{phone})
