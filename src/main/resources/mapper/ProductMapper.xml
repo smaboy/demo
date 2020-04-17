@@ -12,7 +12,7 @@
         INSERT INTO `product` VALUES(#{productName},#{productPrice},#{productType},#{productImg},#{productDes})
     </insert>
 
-    <select id="queryByUsername" resultType="com.smaboy.demo.entity.Product">
+    <select id="getProductList" resultType="com.smaboy.demo.entity.Product">
         SELECT * FROM `product`
     </select >
 </mapper>
