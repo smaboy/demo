@@ -9,6 +9,7 @@ import java.util.List;
 @Mapper
 @Repository
 public interface UserMapper {
+
     int addUserInfo(User user);
 
     List<User> queryByUsername(String username);

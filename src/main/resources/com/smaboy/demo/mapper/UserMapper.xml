@@ -12,4 +12,5 @@
     <select id="queryByUsername" resultType="com.smaboy.demo.entity.User">
         SELECT * FROM `user` WHERE username = #{username}
     </select >
+
 </mapper>
