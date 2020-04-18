@@ -30,4 +30,19 @@ public interface ProductMapper {
      * @return 产品列表
      */
     List<Product> getProductList();
+
+    /**
+     * 模糊查询（查询产品名称包含该产品名的产品）
+     * @param productName 产品名
+     * @return
+     */
+    List<Product> getProductListByKey(String productName);
+
+    /**
+     * 模糊查询
+     * @param productName 产品名称
+     * @param productType 产品类型
+     * @return
+     */
+    List<Product> getProductByCondition(String productName,int productType);
 }

@@ -31,4 +31,14 @@ public class ProductServiceImpl implements ProductService {
     public List<Product> getProductList() {
         return productMapper.getProductList();
     }
+
+    @Override
+    public List<Product> getProductByKey(String productName) {
+        return productMapper.getProductListByKey(productName);
+    }
+
+    @Override
+    public List<Product> getProductByCondition(String productName, int productType) {
+        return productMapper.getProductByCondition(productName,productType);
+    }
 }

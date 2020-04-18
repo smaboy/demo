@@ -5,6 +5,7 @@ import com.smaboy.demo.entity.Response
 import com.smaboy.demo.service.ProductService
 import org.springframework.beans.factory.annotation.Autowired
 import org.springframework.web.bind.annotation.*
+import java.lang.reflect.Method
 
 /**
  * 类名: ProductController
@@ -76,4 +77,50 @@ class ProductController {
         }
         return response
     }
+
+    /**
+     * 模糊查询，获取产品列表
+     */
+    @RequestMapping(value = ["/getProductListByKey"] , method = [RequestMethod.POST])
+    fun getProductListByKey(@RequestParam(value = "productName" , required = false) productName: String): Response {
+        val response = Response()
+        if (productName.isEmpty()){
+            response.code = 202
+            response.msg = "查询的产品名称不能为空，请设置后重新查询"
+            response.data = null
+            return response
+        }
+        val productList : List<Product>? = productService?.getProductByKey(productName)
+        setResultData(productList, response)
+        return response
+    }
+
+    /**
+     * 模糊查询，获取产品列表
+     */
+    @RequestMapping(value = ["/getProductByCondition"] , method = [RequestMethod.POST])
+    fun getProductByCondition(@RequestParam(value = "productName" , required = false) productName: String? ,
+                              @RequestParam productType: Int): Response {
+        val response = Response()
+        val productList : List<Product>? = productService?.getProductByCondition(productName , productType)
+        setResultData(productList, response)
+
+        return response
+    }
+
+    /**
+     * 处理列表数据
+     */
+    private fun setResultData(productList: List<Product>?, response: Response) {
+        if (productList.isNullOrEmpty()) {
+            response.code = 201
+            response.msg = "获取数据失败"
+            response.data = productList
+        } else {
+            response.code = 0
+            response.msg = "获取数据成功"
+            response.data = productList
+        }
+    }
+
 }

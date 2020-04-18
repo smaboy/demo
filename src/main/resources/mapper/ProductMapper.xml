@@ -16,4 +16,21 @@
     <select id="getProductList" resultMap="BaseResultMap">
         SELECT * FROM `product`
     </select >
+
+    <select id="getProductListByKey" resultMap="BaseResultMap">
+        SELECT * FROM `product` where productName like concat('%',#{productName},'%') or productDes
+        like  concat('%',#{productDes},'%')
+    </select >
+
+    <select id="getProductByCondition" resultMap="BaseResultMap">
+        SELECT * FROM `product`
+        <where>
+            <if test="productName != null and productName != ''">
+                and productName like concat('%',#{productName},'%')
+            </if>
+            <if test="productType != null and productType != -1">
+                and productType = #{productType}
+            </if>
+        </where>
+    </select >
 </mapper>

@@ -26,4 +26,7 @@ public interface ProductService {
      * @return 产品列表
      */
     List<Product> getProductList();
+
+    List<Product> getProductByKey(String productName);
+    List<Product> getProductByCondition(String productName,int productType);
 }
