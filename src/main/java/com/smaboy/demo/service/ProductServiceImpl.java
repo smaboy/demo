@@ -41,4 +41,10 @@ public class ProductServiceImpl implements ProductService {
     public List<Product> getProductByCondition(String productName, int productType) {
         return productMapper.getProductByCondition(productName,productType);
     }
+
+    @Override
+    public int updateProduct(Product product) {
+
+        return productMapper.updateProduct(product);
+    }
 }

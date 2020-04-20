@@ -10,3 +10,6 @@ java接口
 3. [实战 Java 第3天：开发注册、登录接口](https://blog.csdn.net/weixin_44135121/article/details/94716711)
 
 4. [实战 Java 第4天：开发信息发布、获取列表信息接口](https://blog.csdn.net/weixin_44135121/article/details/95296797)
+
+5. [实战 Java 第5天：开发商品查询(模糊查询与条件查询)接口](https://blog.csdn.net/weixin_44135121/article/details/95529369)
+

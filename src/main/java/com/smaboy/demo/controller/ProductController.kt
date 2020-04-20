@@ -5,7 +5,6 @@ import com.smaboy.demo.entity.Response
 import com.smaboy.demo.service.ProductService
 import org.springframework.beans.factory.annotation.Autowired
 import org.springframework.web.bind.annotation.*
-import java.lang.reflect.Method
 
 /**
  * 类名: ProductController
@@ -121,6 +120,31 @@ class ProductController {
             response.msg = "获取数据成功"
             response.data = productList
         }
+    }
+
+    @RequestMapping(value = ["/updateProduct"], method = [RequestMethod.POST])
+    fun updateProduct(@RequestBody product: Product): Response? {
+        val response = Response()
+        val productId = product.productId
+        val count = productService?.updateProduct(product)?:0
+        if (productId != 0){
+            if (count >0){
+                response.code = 0
+                response.msg = "产品数据更新成功"
+                response.data = product
+            }else{
+                response.code = 201
+                response.msg = "产品数据更新失败"
+                response.data = null
+            }
+        }else{
+            response.code = 202
+            response.msg = "请输入产品id"
+            response.data = null
+        }
+
+
+        return response
     }
 
 }

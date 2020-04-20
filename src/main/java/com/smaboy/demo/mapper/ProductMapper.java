@@ -2,6 +2,7 @@ package com.smaboy.demo.mapper;
 
 import com.smaboy.demo.entity.Product;
 import org.apache.ibatis.annotations.Mapper;
+import org.apache.ibatis.annotations.Param;
 import org.springframework.stereotype.Repository;
 
 import java.util.List;
@@ -45,4 +46,11 @@ public interface ProductMapper {
      * @return
      */
     List<Product> getProductByCondition(String productName,int productType);
+
+    /**
+     * 更新产品
+     * @param product 产品
+     * @return
+     */
+    int updateProduct(@Param("product") Product product);
 }

@@ -33,4 +33,26 @@
             </if>
         </where>
     </select >
+
+    <update id="updateProduct" parameterType="com.smaboy.demo.entity.Product">
+        update product
+        <trim prefix="SET" suffixOverrides=",">
+            <if test="null != product.productName and '' != product.productName">
+                productName=#{product.productName},
+            </if>
+            <if test="null != product.productType and -1!= product.productType">
+                productType=#{product.productType},
+            </if>
+            <if test="null != product.productPrice and -1!= product.productPrice">
+                productPrice=#{product.productPrice},
+            </if>
+            <if test="null != product.productImg and '' != product.productImg">
+                productImg=#{product.productImg},
+            </if>
+            <if test="null != product.productDes and '' != product.productDes">
+                productDes=#{product.productDes},
+            </if>
+        </trim>
+        where productId=#{product.productId}
+    </update>
 </mapper>

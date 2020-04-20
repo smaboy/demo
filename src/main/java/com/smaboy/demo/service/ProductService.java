@@ -1,6 +1,7 @@
 package com.smaboy.demo.service;
 
 import com.smaboy.demo.entity.Product;
+import org.apache.ibatis.annotations.Param;
 
 import java.util.List;
 
@@ -29,4 +30,5 @@ public interface ProductService {
 
     List<Product> getProductByKey(String productName);
     List<Product> getProductByCondition(String productName,int productType);
+    int updateProduct(Product product);
 }
