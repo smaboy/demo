@@ -3,6 +3,7 @@ package com.smaboy.demo.controller
 import com.smaboy.demo.entity.Product
 import com.smaboy.demo.entity.Response
 import com.smaboy.demo.service.ProductService
+import org.apache.ibatis.annotations.Param
 import org.springframework.beans.factory.annotation.Autowired
 import org.springframework.web.bind.annotation.*
 
@@ -122,6 +123,9 @@ class ProductController {
         }
     }
 
+    /**
+     * 更新产品
+     */
     @RequestMapping(value = ["/updateProduct"], method = [RequestMethod.POST])
     fun updateProduct(@RequestBody product: Product): Response? {
         val response = Response()
@@ -144,6 +148,31 @@ class ProductController {
         }
 
 
+        return response
+    }
+
+    /**
+     * 删除产品
+     */
+    @RequestMapping(value = ["/deleteProduct"] , method = [RequestMethod.POST])
+    fun deleteProduct(productId: Int): Response {
+        val response = Response()
+        val count = productService?.deleteProduct(productId)?:0
+        if (productId != 0){
+            if (count >0){
+                response.code = 0
+                response.msg = "删除产品数据成功"
+                response.data = null
+            }else{
+                response.code = 201
+                response.msg = "删除产品数据失败"
+                response.data = null
+            }
+        }else{
+            response.code = 202
+            response.msg = "请输入产品id"
+            response.data = null
+        }
         return response
     }
 

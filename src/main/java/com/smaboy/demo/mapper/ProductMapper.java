@@ -35,7 +35,7 @@ public interface ProductMapper {
     /**
      * 模糊查询（查询产品名称包含该产品名的产品）
      * @param productName 产品名
-     * @return
+     * @return 产品列表
      */
     List<Product> getProductListByKey(String productName);
 
@@ -43,14 +43,21 @@ public interface ProductMapper {
      * 模糊查询
      * @param productName 产品名称
      * @param productType 产品类型
-     * @return
+     * @return 产品列表
      */
     List<Product> getProductByCondition(String productName,int productType);
 
     /**
      * 更新产品
      * @param product 产品
-     * @return
+     * @return 返回值 >o 成功
      */
     int updateProduct(@Param("product") Product product);
+
+    /**
+     * 删除产品
+     * @param productId 产品id
+     * @return 返回值 >o 成功
+     */
+    int deleteProduct(int productId);
 }

@@ -31,4 +31,11 @@ public interface ProductService {
     List<Product> getProductByKey(String productName);
     List<Product> getProductByCondition(String productName,int productType);
     int updateProduct(Product product);
+
+    /**
+     * 删除产品
+     * @param productId 产品id
+     * @return 返回值 >o 成功
+     */
+    int deleteProduct(int productId);
 }

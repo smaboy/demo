@@ -55,4 +55,8 @@
         </trim>
         where productId=#{product.productId}
     </update>
+
+    <delete id="deleteProduct" parameterType="com.smaboy.demo.entity.Product">
+        delete from product where productId=#{productId}
+    </delete>
 </mapper>
