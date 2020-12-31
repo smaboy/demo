@@ -176,4 +176,18 @@ class ProductController {
         return response
     }
 
+    @RequestMapping(value = ["/getProductDetailById"] , method = [RequestMethod.POST])
+    fun getProductDetailById(@RequestParam productId: Int) = Response().apply {
+        val product = productService?.getProductDetailById(productId)
+        if(product == null){
+            code = 201
+            msg = "获取产品信息失败"
+            data = null
+        }else{
+            code = 0
+            msg = "获取产品信息成功"
+            data = product
+        }
+    }
+
 }

@@ -38,4 +38,11 @@ public interface ProductService {
      * @return 返回值 >o 成功
      */
     int deleteProduct(int productId);
+
+    /**
+     * 通过产品号获取产品信息
+     * @param productId 产品id
+     * @return 产品信息
+     */
+    Product getProductDetailById(int productId);
 }

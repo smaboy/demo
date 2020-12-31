@@ -52,4 +52,9 @@ public class ProductServiceImpl implements ProductService {
     public int deleteProduct(int productId) {
         return productMapper.deleteProduct(productId);
     }
+
+    @Override
+    public Product getProductDetailById(int productId) {
+        return productMapper.getProductDetailById(productId);
+    }
 }

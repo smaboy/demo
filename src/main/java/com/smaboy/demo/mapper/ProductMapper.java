@@ -60,4 +60,11 @@ public interface ProductMapper {
      * @return 返回值 >o 成功
      */
     int deleteProduct(int productId);
+
+    /**
+     * 获取产品详情
+     * @param productId 产品id
+     * @return 产品详情
+     */
+    Product getProductDetailById(int productId);
 }

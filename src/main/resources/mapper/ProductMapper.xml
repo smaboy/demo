@@ -59,4 +59,8 @@
     <delete id="deleteProduct" parameterType="com.smaboy.demo.entity.Product">
         delete from product where productId=#{productId}
     </delete>
+
+    <select id="getProductDetailById" resultMap="BaseResultMap">
+        select * from product where productId = #{productId} limit 1
+    </select>
 </mapper>
