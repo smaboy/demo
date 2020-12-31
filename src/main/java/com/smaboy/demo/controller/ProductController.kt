@@ -177,6 +177,9 @@ class ProductController {
         return response
     }
 
+    /**
+     * 通过产品id获取产品信息
+     */
     @RequestMapping(value = ["/getProductDetailById"] , method = [RequestMethod.POST])
     fun getProductDetailById(@RequestParam productId: Int) = Response().apply {
         val product = productService?.getProductDetailById(productId)
@@ -193,7 +196,10 @@ class ProductController {
     }
 
 
-    @RequestMapping(value = ["/statisticProductNum"],method = [RequestMethod.GET])
+    /**
+     * 统计不同产品类型的数量
+     */
+    @RequestMapping(value = ["/statisticProductNum"],method = [RequestMethod.GET,RequestMethod.POST])
     fun statisticProductNum() = Response().apply {
         val resList = productService?.statisticProductNum()
         if(resList == null){
