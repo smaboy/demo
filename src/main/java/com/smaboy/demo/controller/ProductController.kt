@@ -6,6 +6,7 @@ import com.smaboy.demo.service.ProductService
 import org.apache.ibatis.annotations.Param
 import org.springframework.beans.factory.annotation.Autowired
 import org.springframework.web.bind.annotation.*
+import tk.mybatis.mapper.entity.Example
 
 /**
  * 类名: ProductController
@@ -187,6 +188,22 @@ class ProductController {
             code = 0
             msg = "获取产品信息成功"
             data = product
+        }
+        
+    }
+
+
+    @RequestMapping(value = ["/statisticProductNum"],method = [RequestMethod.GET])
+    fun statisticProductNum() = Response().apply {
+        val resList = productService?.statisticProductNum()
+        if(resList == null){
+            code = 201
+            msg = "获取产品信息失败"
+            data = null
+        }else{
+            code = 0
+            msg = "获取产品信息成功"
+            data = resList
         }
     }
 

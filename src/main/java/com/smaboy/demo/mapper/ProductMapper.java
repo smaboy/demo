@@ -6,6 +6,7 @@ import org.apache.ibatis.annotations.Param;
 import org.springframework.stereotype.Repository;
 
 import java.util.List;
+import java.util.Map;
 
 /**
  * 类名: ProductMapper
@@ -67,4 +68,6 @@ public interface ProductMapper {
      * @return 产品详情
      */
     Product getProductDetailById(int productId);
+
+    List<Map<String, Object>> statisticProductNum();
 }

@@ -63,4 +63,8 @@
     <select id="getProductDetailById" resultMap="BaseResultMap">
         select * from product where productId = #{productId} limit 1
     </select>
+
+    <select id="statisticProductNum" resultType="java.util.Map">
+        SELECT productType productType, COUNT(1) productNum  FROM product GROUP BY productType
+    </select>
 </mapper>

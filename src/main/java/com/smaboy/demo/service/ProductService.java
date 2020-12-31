@@ -4,6 +4,7 @@ import com.smaboy.demo.entity.Product;
 import org.apache.ibatis.annotations.Param;
 
 import java.util.List;
+import java.util.Map;
 
 /**
  * 类名: ProductService
@@ -45,4 +46,7 @@ public interface ProductService {
      * @return 产品信息
      */
     Product getProductDetailById(int productId);
+
+
+    List<Map<String,Object>> statisticProductNum();
 }
