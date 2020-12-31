@@ -18,4 +18,4 @@ java接口
 7. [实战 Java 第7天：开发删除商品接口](https://blog.csdn.net/weixin_44135121/article/details/96188389?depth_1-utm_source=distribute.pc_relevant.none-task-blog-OPENSEARCH-3&utm_source=distribute.pc_relevant.none-task-blog-OPENSEARCH-3)
 
 ----
- 遗憾的是只有7篇，只好来个未完待续吧！！！
+ 遗憾的是只有7篇，只好来个未完待续吧！！！99999999999
