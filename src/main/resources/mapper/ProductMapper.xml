@@ -67,4 +67,7 @@
     <select id="statisticProductNum" resultType="java.util.Map">
         SELECT productType productType, COUNT(1) productNum  FROM product GROUP BY productType
     </select>
+    <select id="getProductPageList" resultMap="BaseResultMap">
+        select * from product
+    </select>
 </mapper>

@@ -1,5 +1,7 @@
 package com.smaboy.demo.controller
 
+import com.github.pagehelper.PageHelper
+import com.github.pagehelper.PageInfo
 import com.smaboy.demo.entity.Product
 import com.smaboy.demo.entity.Response
 import com.smaboy.demo.service.ProductService
@@ -211,6 +213,27 @@ class ProductController {
             msg = "获取产品信息成功"
             data = resList
         }
+    }
+
+    @RequestMapping(value = ["/getProductPageList"],method = [RequestMethod.POST])
+    fun getProductPageList(@RequestParam("pageNum") pageNum : Int , @RequestParam("pageSize") pageSize : Int) = Response().apply {
+        // 借助pagehelper插件开启分页
+        // 下面这行代码的位置不能随便放，
+        // pagehelper会对此代码之后的第一个查询进行分页，
+        // 如果涉及多个查询语句的业务代码，注意此行代码的摆放位置
+        PageHelper.startPage<Product>(pageNum,pageSize)
+        val pageList = productService?.productPageList
+        val productMap = mapOf("list" to pageList , "total" to PageInfo(pageList).total)
+        if(pageList == null){
+            code = 201
+            msg = "获取产品信息失败"
+            data = null
+        }else{
+            code = 0
+            msg = "获取产品信息成功"
+            data = productMap
+        }
+
     }
 
 }

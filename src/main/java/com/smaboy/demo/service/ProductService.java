@@ -49,4 +49,6 @@ public interface ProductService {
 
 
     List<Map<String,Object>> statisticProductNum();
+
+    List<Product> getProductPageList();
 }

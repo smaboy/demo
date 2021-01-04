@@ -63,4 +63,9 @@ public class ProductServiceImpl implements ProductService {
     public List<Map<String, Object>> statisticProductNum() {
         return productMapper.statisticProductNum();
     }
+
+    @Override
+    public List<Product> getProductPageList() {
+        return productMapper.getProductPageList();
+    }
 }

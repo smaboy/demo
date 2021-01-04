@@ -70,4 +70,6 @@ public interface ProductMapper {
     Product getProductDetailById(int productId);
 
     List<Map<String, Object>> statisticProductNum();
+
+    List<Product> getProductPageList();
 }
